@@ -6,7 +6,7 @@ Bitte stelle sicher, dass du (https://git-scm.com/), maven (https://maven.apache
 
 Führe dann diese Schritte aus, um die App zu starten:
 - Klone dieses Repository mit git, importiere das Projekt als Maven-Projekt in eine IDE (IntelliJ, Eclipse) deiner Wahl
-- Öffne eine Konsole und navigiere zu 'spring-angular-2-cli-starter', dann führe den folgenden Befehl aus: `mvn spring-boot:run`. Maven wird jetzt die Dependencies downloaden und die Spring Boot Backend App starten. Dies kann eine Weile dauern. Wenn das Backend gestartet ist, ist es unter ``http://localhost:8080`` aufrufbar. Um Änderungen im Backend-Code zu übernehmen, musst du den Prozess stoppen und mittels `mvn spring-boot:run` erneut starten.
+- Öffne eine Konsole und navigiere in den root folder 'application-se-exercise', dann führe den folgenden Befehl aus: `mvn spring-boot:run`. Maven wird jetzt die Dependencies downloaden und die Spring Boot Backend App starten. Dies kann eine Weile dauern. Wenn das Backend gestartet ist, ist es unter ``http://localhost:8080`` aufrufbar. Um Änderungen im Backend-Code zu übernehmen, musst du den Prozess stoppen und mittels `mvn spring-boot:run` erneut starten.
 - Navigiere in einer weiteren Konsole in den Ordner "spring-angular-2-cli-starter/src/main/client" and führe erst den Befehl ``npm install`` und dann den Befehl ``npm start`` aus. Das angular.io Frontend wird starten und sollte dann unter ``http://localhost:4200`` verfügbar sein. Änderungen im Frontend Code werden automatisch übernommen.
 
 

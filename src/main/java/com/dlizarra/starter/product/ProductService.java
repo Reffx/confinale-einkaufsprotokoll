@@ -32,6 +32,23 @@ public class ProductService {
         return newProduct;
     }
 
+    //update Product
+    public Product updateProduct(Product newProduct, Long productId) {
+        Product tempProduct = productRepository.findById(productId);
+        if (newProduct.getProductName() != null) {
+            tempProduct.setProductName(newProduct.getProductName());
+        }
+        if (newProduct.getUserName() != null) {
+            tempProduct.setUserName(newProduct.getUserName());
+        }
+        tempProduct.setPrice(newProduct.getPrice());
+        if (newProduct.getPurchaseDate() != null) {
+            tempProduct.setPurchaseDate(newProduct.getPurchaseDate());
+        }
+        productRepository.save(tempProduct);
+        return newProduct;
+    }
+
     public Product getProduct(long id) {
         Product tempProduct = productRepository.findById(id);
         return tempProduct;

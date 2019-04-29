@@ -1,0 +1,67 @@
+table {
+  margin: auto;
+  width: 900px;
+}
+
+td {
+  padding: 15px;
+  font-family: Bahnschrift;
+}
+
+button{
+  margin: 15px;
+  font-family: Bahnschrift;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(0, 204, 255, 0.7);
+}
+
+.deleteProductButton{
+  background-color: rgba(255, 0, 0, 0.7);
+}
+
+.newProductButton{
+  background-color: rgba(0, 255, 0, 0.7);
+}
+
+.changeProductButton{
+  background-color: rgba(255, 255, 0, 0.7);
+}
+
+input {
+  margin: 15px;
+  font-family: Bahnschrift;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.titleRow{
+  font-weight: bold;
+}
+
+tr:nth-child(odd){
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+}
+
+tr:nth-child(even){
+  background: rgba(255, 255, 255, 0.7);
+}
+
+
+tr{
+  width: 900px;
+}
+
+p{
+  font-family: Bahnschrift;
+  font-size: 25px;
+  background: rgba(255, 255, 255, 0.7);
+  margin: auto;
+  padding: 12px;
+}
+
+.paddingTop{
+  padding-top: 25px;
+}

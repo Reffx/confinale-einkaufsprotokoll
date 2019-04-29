@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {User} from "./user";
 import {Product} from "./product";
 import {Observable} from "rxjs";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-scratch',
@@ -14,6 +15,8 @@ export class ScratchComponent implements OnInit {
   userName: "";
   purchaseDate: "";
   price: null;
+
+
 
   users: User[];
   products: Product[];

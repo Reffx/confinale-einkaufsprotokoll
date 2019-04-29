@@ -1,35 +1,46 @@
+<div class="paddingTop">
 <table>
+  <td class="titleRow">Produktname</td>
+  <td class="titleRow">Käufer</td>
+  <td class="titleRow">Preis in CHF</td>
+  <td class="titleRow">Kaufdatum</td>
   <tr *ngFor="let product of products">
-    <td>{{product.id}}</td>
     <td>{{product.productName}}</td>
     <td>{{product.userName}}</td>
     <td>{{product.price}}</td>
     <td>{{product.purchaseDate}}</td>
-    <button (click)="deleteService(product.id)"> Delete Product</button>
-    <button (click)="setPickedProduct(product.id)">Edit Product</button>
+    <button class="deleteProductButton"(click)="deleteService(product.id)"> Produkt Löschen </button>
+    <button class="changeProductButton"(click)="setPickedProduct(product.id)">Produkt Bearbeiten</button>
+  </tr>
 </table>
+</div>
 
 <div *ngIf="pickedProduct">
   <table>
     <tr>
-      <input type="text" placeholder="{{pickedProduct.userName}}" (keyup)="onUserNameKeyUp($event)">
       <input type="text" placeholder="{{pickedProduct.productName}}" (keyup)="onProductNameKeyUp($event)">
+      <input type="text" placeholder="{{pickedProduct.userName}}" (keyup)="onUserNameKeyUp($event)">
       <input type="number" placeholder="{{pickedProduct.price}}" (keyup)="onPriceKeyUp($event)">
       <input type="date" placeholder="{{pickedProduct.purchaseDate}}" (keyup)="onPurchaseDateKeyUp($event)">
+      <br>
       <button (click)="getProducts()"> Zurück </button>
       <button (click)="updateProduct(pickedProduct.id)"> Einkauf ändern </button>
     </tr>
   </table>
 </div>
 
+<table class="paddingTop" *ngIf="newInputMode">
+<p *ngIf="getSumOfPurchases(products) != 0">Kosten Einkäufe total: {{getSumOfPurchases(products)}} CHF!</p>
+</table>
 
+<div class="paddingTop">
 <table *ngIf="newInputMode">
   <tr>
-    <input type="text" placeholder="User-Name" (keyup)="onUserNameKeyUp($event)">
     <input type="text" placeholder="Produkt-Name" (keyup)="onProductNameKeyUp($event)">
+    <input type="text" placeholder="User-Name" (keyup)="onUserNameKeyUp($event)">
     <input type="text" placeholder="Preis" (keyup)="onPriceKeyUp($event)">
     <input type="date" placeholder="Kaufdatum" (keyup)="onPurchaseDateKeyUp($event)">
-    <button (click)="postProduct()"> Post something </button>
+    <button class="newProductButton" (click)="postProduct()"> Neues Produkt! </button>
   </tr>
-  <p *ngIf="getSumOfPurchases(products) != 0">Kosten Einkäufe total: {{getSumOfPurchases(products)}}</p>
-</table>
+  </table>
+</div>

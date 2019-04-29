@@ -18,10 +18,10 @@
 <div *ngIf="pickedProduct">
   <table>
     <tr>
-      <input type="text" placeholder="{{pickedProduct.productName}}" (keyup)="onProductNameKeyUp($event)">
-      <input type="text" placeholder="{{pickedProduct.userName}}" (keyup)="onUserNameKeyUp($event)">
-      <input type="number" placeholder="{{pickedProduct.price}}" (keyup)="onPriceKeyUp($event)">
-      <input type="date" placeholder="{{pickedProduct.purchaseDate}}" (keyup)="onPurchaseDateKeyUp($event)">
+      <input type="text" value="{{pickedProduct.productName}}" (keyup)="onProductNameKeyUp($event)">
+      <input type="text" value="{{pickedProduct.userName}}" (keyup)="onUserNameKeyUp($event)">
+      <input type="number" value="{{pickedProduct.price}}" (keyup)="onPriceKeyUp($event)">
+      <input type="date" value="{{pickedProduct.purchaseDate}}" (keyup)="onPurchaseDateKeyUp($event)">
       <br>
       <button (click)="getProducts()"> Zurück </button>
       <button (click)="updateProduct(pickedProduct.id)"> Einkauf ändern </button>

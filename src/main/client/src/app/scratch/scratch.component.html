@@ -1,9 +1,20 @@
+<table>
+  <tr *ngFor="let product of products">
+    <td>{{product.id}}</td>
+    <td>{{product.productName}}</td>
+    <td>{{product.userName}}</td>
+    <td>{{product.price}}</td>
+    <td>{{product.purchaseDate}}</td>
+</table>
+
 <p>
   Hello World!
 </p>
 <p>
   We prepared a sample http request for you:
   <button (click)="onLoadUsersButtonClick()"> Klick me to load users</button>
+  <button (click)="getProducts()"> Klick me to load products</button>
+
 </p>
 
 <p *ngIf="users">

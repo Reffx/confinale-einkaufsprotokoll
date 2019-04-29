@@ -31,4 +31,5 @@
     <input type="date" placeholder="Kaufdatum" (keyup)="onPurchaseDateKeyUp($event)">
     <button (click)="postProduct()"> Post something </button>
   </tr>
+  <p *ngIf="getSumOfPurchases(products) != 0">Kosten Einkäufe total: {{getSumOfPurchases(products)}}</p>
 </table>

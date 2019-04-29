@@ -110,4 +110,13 @@ export class ScratchComponent implements OnInit {
   removeUsers() {
     this.users = null;
   }
+
+  public getSumOfPurchases(products){
+    var result = 0;
+    for (var i = 0; i < products.length; i++){
+      var product = products[i];
+      result = product.price + result;
+    }
+    return result;
+  }
 }

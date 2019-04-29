@@ -7,28 +7,12 @@
     <td>{{product.purchaseDate}}</td>
 </table>
 
-<p>
-  Hello World!
-</p>
-<p>
-  We prepared a sample http request for you:
-  <button (click)="onLoadUsersButtonClick()"> Klick me to load users</button>
-  <button (click)="getProducts()"> Klick me to load products</button>
-
-</p>
-
-<p *ngIf="users">
-    We loaded the following users from the database at {{loadedAt}}:
-</p>
-
-
 <table>
-  <tr *ngFor="let user of users">
-    <td>{{user.id}}</td>
-    <td>{{user.username}}</td>
+  <tr>
+    <input type="text" placeholder="User-Name" (keyup)="onUserNameKeyUp($event)">
+    <input type="text" placeholder="Produkt-Name" (keyup)="onProductNameKeyUp($event)">
+    <input type="text" placeholder="Preis" (keyup)="onPriceKeyUp($event)">
+    <input type="date" placeholder="Kaufdatum" (keyup)="onPurchaseDateKeyUp($event)">
+    <button (click)="postProduct()"> Post something </button>
   </tr>
 </table>
-
-<p *ngIf="users">
-  <button (click)="removeUsers()"> Clear Loaded Users </button>
-</p>

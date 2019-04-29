@@ -16,6 +16,9 @@ export class ScratchComponent implements OnInit {
 
   users: User[];
   products: Product[];
+  pickedProduct: Product;
+  newInputMode: boolean;
+
 
   loadedAt: string;
 
@@ -47,8 +50,12 @@ export class ScratchComponent implements OnInit {
       .subscribe(resp => {
         this.products = resp;
       });
+    this.removePickedProduct();
+    this.newInputMode = true;
     this.loadedAt = new Date().toLocaleTimeString();
   }
+
+
 
   postProduct() {
     this.httpClient.post("api/products", {
@@ -75,14 +82,16 @@ export class ScratchComponent implements OnInit {
     });
   }
 
-  onLoadUsersButtonClick() {
-    this.httpClient.get<User[]>("api/users")
-    //NOTE: ideally, we should have an error handler here, which we left away for simplicity
-      .subscribe(resp => {
-        this.users = resp;
-      });
+  setPickedProduct(productId: number) {
+    this.httpClient.get<Product>("api/products/" + productId).subscribe(resp => {
+      this.pickedProduct = resp;
+      this.products = null;
+      this.newInputMode = false;
+    });
+  }
 
-    this.loadedAt = new Date().toLocaleTimeString();
+  removePickedProduct() {
+    this.pickedProduct = null;
   }
 
   removeUsers() {

@@ -5,9 +5,24 @@
     <td>{{product.userName}}</td>
     <td>{{product.price}}</td>
     <td>{{product.purchaseDate}}</td>
+    <button (click)="setPickedProduct(product.id)">Edit Product</button>
 </table>
 
-<table>
+<div *ngIf="pickedProduct">
+  <table>
+    <tr>
+      <input type="text" placeholder="{{pickedProduct.userName}}" (keyup)="onUserNameKeyUp($event)">
+      <input type="text" placeholder="{{pickedProduct.productName}}" (keyup)="onProductNameKeyUp($event)">
+      <input type="number" placeholder="{{pickedProduct.price}}" (keyup)="onPriceKeyUp($event)">
+      <input type="date" placeholder="{{pickedProduct.purchaseDate}}" (keyup)="onPurchaseDateKeyUp($event)">
+      <button (click)="getProducts()"> Zurück </button>
+      <button (click)="updateProduct(pickedProduct.id)"> Einkauf ändern </button>
+    </tr>
+  </table>
+</div>
+
+
+<table *ngIf="newInputMode">
   <tr>
     <input type="text" placeholder="User-Name" (keyup)="onUserNameKeyUp($event)">
     <input type="text" placeholder="Produkt-Name" (keyup)="onProductNameKeyUp($event)">

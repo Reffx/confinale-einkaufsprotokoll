@@ -5,6 +5,7 @@
     <td>{{product.userName}}</td>
     <td>{{product.price}}</td>
     <td>{{product.purchaseDate}}</td>
+    <button (click)="deleteService(product.id)"> Delete Product</button>
     <button (click)="setPickedProduct(product.id)">Edit Product</button>
 </table>
 

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {User} from "./user";
 import {Product} from "./product";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-scratch',
@@ -80,6 +81,18 @@ export class ScratchComponent implements OnInit {
       console.log(productId);
       this.getProducts();
     });
+  }
+
+  deleteService(productId: number): void {
+    this.deleteProduct(productId).subscribe((resp) => {
+      this.products = this.products.filter(eachProduct => eachProduct.id !== productId)
+    })
+  }
+
+  deleteProduct(productId: number): Observable<Product> {
+    console.log(productId);
+    const url = "api/products/" + productId; // --> ${ProductId} isn't rendered corretly :(
+    return this.httpClient.delete<Product>(url);
   }
 
   setPickedProduct(productId: number) {

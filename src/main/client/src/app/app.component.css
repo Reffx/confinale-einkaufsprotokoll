@@ -11,3 +11,7 @@ h1 {
 }
 
 html { background-color: black; }
+
+.paddingTop{
+  padding-top: 50px;
+}

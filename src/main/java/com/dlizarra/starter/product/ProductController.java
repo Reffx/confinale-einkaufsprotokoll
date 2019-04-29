@@ -1,5 +1,6 @@
 package com.dlizarra.starter.product;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -21,6 +22,12 @@ public class ProductController {
     @PostMapping("/products")
     Product createProduct(@RequestBody Product newProduct) {
         return this.service.createProduct(newProduct);
+    }
+
+    //  delete a Product with a specific ID
+    @DeleteMapping("/products/{productId}")
+    ResponseEntity<String> deleteProduct(@PathVariable Long productId) {
+        return service.deleteProduct(productId);
     }
 
     //get product with a specific ID

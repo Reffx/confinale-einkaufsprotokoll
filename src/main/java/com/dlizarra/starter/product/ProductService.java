@@ -1,6 +1,8 @@
 package com.dlizarra.starter.product;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,6 +32,12 @@ public class ProductService {
         }
         productRepository.save(newProduct);
         return newProduct;
+    }
+
+    //deleteProduct
+    public ResponseEntity<String> deleteProduct(Long productId) {
+        productRepository.delete(productId);
+        return new ResponseEntity<String>(HttpStatus.OK); // response code: 204
     }
 
     //update Product
